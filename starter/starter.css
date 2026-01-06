@@ -6,6 +6,7 @@
 }
 
 body {
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -105,6 +106,10 @@ header {
 }
 
 /* about me */
+
+.about-wraper {
+  background: #effcff;
+}
 
 .about-me-title {
   display: flex;
@@ -254,6 +259,11 @@ header {
 
 .project-card-btn {
   width: fit-content;
+  transition: 0.2s;
+}
+.project-card-btn:hover {
+  box-shadow: 0 0 10px #2a7a929c;
+  transform: scale(0.97);
 }
 
 .project-card hr {
@@ -317,8 +327,9 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
+  background: #effcff;
 }
 
 .ui-wraper {
@@ -615,4 +626,55 @@ background: rgb(249, 255, 255);
 .mini-title {
   font-weight: 450;
   font-size: 1.5rem;
+}
+
+/* footer */
+
+.footer-wraper {
+  display: flex;
+  flex-direction: column;
+  background: #effcff;
+}
+
+.contact-wraper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 2rem;
+  padding-block: 7px;
+  gap: 1rem;
+}
+
+.link-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.link-wrap i {
+  font-size: 2rem;
+  color: #0b97c2;
+}
+
+.copy-msg {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #1fbfb8;
+  color: #0f172a;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(10px);
+}
+
+.copy-msg.show {
+  opacity: 1;
+  transform: translateY(0);
 }
