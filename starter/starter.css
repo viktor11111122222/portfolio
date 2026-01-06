@@ -5,6 +5,10 @@
   color: white;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 
 header {
     background: linear-gradient(
@@ -309,13 +313,21 @@ header {
   padding: 2rem 0;
 }
 
+.hero-wraper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .ui-wraper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  gap: 10px;
+  gap: 15px;
   width: 100%;
   height: 100%;
   flex-wrap: wrap;
@@ -501,4 +513,106 @@ background: rgb(249, 255, 255);
 
 .img-logo {
   height: 25px;
+}
+
+.duzina {
+  height: 100rem;
+}
+
+/* skils */
+
+.skils-hero {
+  background: linear-gradient(
+    135deg, 
+    #2dafb8 0%,   /* primary tirkizna */
+    #55c4c4 50%,  /* svetlija akcent tirkizna */
+    #8dbfc8 100%  /* vrlo svetla pozadina */
+  );
+}
+
+.skils-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 7rem;
+}
+
+.skils-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.skils-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* width: 50%; */
+  gap: 0.5rem;
+}
+
+.logo-wrap {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* border: 1px solid red; */
+  border-radius: 50%;
+  box-shadow: 0 2px 50px #53c0c0;
+}
+
+.logo-img {
+  width: 140%;
+  height: 140%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  object-position: center;
+}
+
+.skils-lists-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 3rem;
+}
+
+.skils-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 1rem;
+}
+
+.skil-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-wrap {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem;
+}
+
+.mini-title {
+  font-weight: 450;
+  font-size: 1.5rem;
 }
