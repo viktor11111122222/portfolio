@@ -175,6 +175,17 @@ header {
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0px 0px 15px #8ea6a7;
+}
+.about-me-card:hover {
+  transform: scale(1.05);
+  border: 1px solid #30a8b1;
+  box-shadow: 0px 0px 15px #adccce;
+}
+.about-me-card:active {
+  transform: scale(0.95);
 }
 
 .about-me-card i {
@@ -236,17 +247,28 @@ header {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 30px;
+  align-items: stretch;
 }
 
 .project-card {
   background: white;
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 40%;
+  max-width: 100%;
   /* gap: 10px; */
   padding: 1rem;
   border-radius: 2px;
+}
+
+.description {
+  max-width: 100%;         /* nikad ne prelazi parent */
+  margin: 0 0 0.5rem 0;    /* reset margin */
+  word-break: break-word;  /* ako je duga reč, prelomi */
+  white-space: normal;     /* dozvoljava wrap */
 }
 
 .projects-button-card {
@@ -255,6 +277,9 @@ header {
   padding-top: 20px;
   gap: 15px;
   width: 100%;
+  align-items: end;
+  justify-content: start;
+  height: 100%;
 }
 
 .project-card-btn {
@@ -263,6 +288,9 @@ header {
 }
 .project-card-btn:hover {
   box-shadow: 0 0 10px #2a7a929c;
+  transform: scale(1.03);
+}
+.project-card-btn:active {
   transform: scale(0.97);
 }
 
@@ -359,24 +387,105 @@ header {
   height: 120px;
   gap: 20px;
   padding-block: 2rem;
-  padding-inline: 2rem;
+  padding-inline: calc(2rem - 1px);
   background: #2abbc55a;
   overflow: hidden;
 }
 
-.container-1 {
+.touch {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.container-hover {
+  cursor: pointer;
+  transition: 0.2s;
+}
+.container-hover:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.418);
+}
+
+.hero-border {
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid #2abbc55a;
+}
+.hero-border:hover {
+  border: 1px solid #13b3beda;
+}
+
+
+.container-1-1 {
   background: linear-gradient(135deg, #2c777c, #4cadad);
   width: 200px;
   height: 50px;
   border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
+.container-1-1:hover {
+  animation: pulse 1.2s infinite;
+  transform: scale(1.05);
+}
+.container-1-1:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 6px rgba(79, 195, 199, 0.6);
+  animation: none; /* gasi pulse dok držiš klik */
+}
+.container-1-1:focus-visible {
+  outline: 2px solid #4fc3c7;
+  outline-offset: 4px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 195, 199, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(79, 195, 199, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 195, 199, 0);
+  }
+}
+
 
 .container-2 {
   background: linear-gradient(135deg, #274896, #789ae9);
   width: 200px;
   height: 50px;
   border-radius: 5px;
+  box-shadow:
+    0 8px 0 #2fa5a942,
+    0 12px 20px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
 }
+/* HOVER – malo se podigne */
+.container-2:hover {
+  transform: translateY(-2px);
+}
+
+/* ACTIVE – PRAVI PRESS */
+.container-2:active {
+  transform: translateY(6px);
+  box-shadow:
+    0 2px 0 #2fa4a9,
+    0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* FOCUS */
+.container-2:focus-visible {
+  outline: 2px solid #4fc3c7;
+  outline-offset: 6px;
+}
+
 
 .ui-1-text {
   display: flex;
@@ -418,6 +527,7 @@ header {
   width: 100%;
   height: 3px;
   margin-inline: 1rem;
+  animation: scale 20s linear infinite;
 }
 
 .container-4-1 {
@@ -425,7 +535,23 @@ header {
   width: 100%;
   height: 3px;
   margin-inline: 1rem;
+  animation: scale 20s linear infinite;
 }
+
+@keyframes scale {
+  0% {
+    transform: scaleX(0.3);
+  }
+
+  50% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0.3);
+  }
+}
+
 
 .ui-container-1 {
   display: flex;
@@ -444,12 +570,22 @@ header {
   background: transparent;
   height: 70px;
   width: 100%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.container-5:hover {
+  height: 85px;
 }
 
 .container-6 {
   background: linear-gradient(135deg, #267777, #39b6b6);
   width: 100%;
   height: 70px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.container-6:hover {
+  height: 85px;
 }
 
 .window-wrap {
@@ -470,6 +606,10 @@ nav {
 
 .windows {
 background: rgb(249, 255, 255);
+transition: 0.2s;
+}
+.windows:hover {
+  box-shadow: 0 0 15px #2eb3dbaf;
 }
 
 .tambnail-wrap {
@@ -493,6 +633,13 @@ background: rgb(249, 255, 255);
   background: #4ab4b4b8;
 }
 
+.tambnail-scale {
+  transition: 0.2s;
+}
+.tambnail-scale:hover {
+  transform: scale(1.07);
+}
+
 .text-wraper {
   display: flex;
   flex-direction: column;
@@ -505,20 +652,33 @@ background: rgb(249, 255, 255);
 }
 
 .big-text {
-  width: 75%;
+  width:75%;
   height: 3px;
   background: #5cb6b685;
+  transition: 0.2s;
+}
+.big-text:hover {
+  width: calc(75% + 5px);
 }
 
 .small-text {
   width: 55%;
   height: 3px;
   background: #5cb6b685;
+  transition: 0.2s;
 }
+.small-text:hover {
+  width: calc(55% + 5px);
+}
+
 
 .hero-wrap {
   border-radius: 10px;
   overflow: hidden;
+}
+
+.wraper-fix {
+  padding-right: 3.5rem;
 }
 
 
