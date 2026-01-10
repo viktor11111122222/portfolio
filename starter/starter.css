@@ -84,6 +84,7 @@ header {
   display: flex;
   justify-content: center;
   padding-bottom: 30px;
+  gap: 12px;
 }
 
 .header-btn {
@@ -180,7 +181,6 @@ header {
   box-shadow: 0px 0px 15px #8ea6a7;
 }
 .about-me-card:hover {
-  transform: scale(1.05);
   border: 1px solid #30a8b1;
   box-shadow: 0px 0px 15px #adccce;
 }
@@ -191,6 +191,36 @@ header {
 .about-me-card i {
   color: #2e6170;
   font-size: 2.5rem;
+}
+
+.btn-pulse {
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-pulse:hover {
+  animation: pulser 1.5s infinite;
+  transform: scale(1.05);
+}
+.btn-pulse:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 6px rgba(79, 195, 199, 0.6);
+  animation: none; /* gasi pulse dok držiš klik */
+}
+.btn-pulse:focus-visible {
+  outline: 2px solid #4fc3c7;
+  outline-offset: 4px;
+}
+
+@keyframes pulser {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 195, 199, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(79, 195, 199, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 195, 199, 0);
+  }
 }
 
 /* projects */
@@ -837,4 +867,115 @@ transition: 0.2s;
 .copy-msg.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* animated footer showing on btn */
+
+.footer-toggle-btn {
+  display: block;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 14px;
+  background: #39c6c9;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.footer-toggle-btn.active {
+  background: #e04f5f;
+}
+
+.footer {
+  background: #39c6c9;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+/* SAKRIVENO PO DEFAULTU */
+.footer-expand {
+  background: linear-gradient(
+    135deg, 
+    #2db0b3 50%,
+    #1c888a 70%,
+    #106668
+  );
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-30px); /* start malo više gore za lep efekat */
+  overflow: hidden;
+  transition: 
+    max-height 1s ease,       /* sporije klizi */
+    opacity 1s ease,          /* sporiji fade */
+    transform 1s ease;        /* sporiji slide */
+  padding: 0 20px;
+  margin-top: 0;
+}
+
+/* OTVORENO */
+.footer-expand.open {
+  max-height: 500px;  /* dovoljno da stane forma */
+  opacity: 1;
+  transform: translateY(0);
+  padding: 20px;
+}
+
+.footer-expand input,
+.footer-expand textarea {
+  width: 100%;
+  padding: 12px;
+  padding-right: 0;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #effbfd;
+  outline: none;
+  color: #3087a1;
+}
+
+.footer-expand textarea {
+  resize: none;
+  height: 100px;
+}
+
+.footer-expand input:focus,
+.footer-expand textarea:focus {
+  /* možeš dodati shadow ili promeniti boju pozadine */
+  box-shadow: 0 0 0 2px #39c6c9;
+}
+
+.send-btn {
+  padding: 12px;
+  background: #39c6c9;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+/* toast / error / submit */
+
+#toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #39c6c9;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 9999;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#toast.error {
+  background: #e04f5f; /* crveni za grešku */
 }

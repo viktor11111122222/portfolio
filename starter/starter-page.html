@@ -13,6 +13,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="starter.css">
   <link rel="icon" type="image/png" href="/public/big-logo-transparent.png">
+  <script type="text/javascript"
+        src="https://cdn.emailjs.com/dist/email.min.js">
+</script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+    (function(){
+      emailjs.init({
+        publicKey: "4FrHcttWWMAg0A32b",
+      });
+    })();
+</script>
+
 </head>
 <body>
   <header>
@@ -27,8 +41,11 @@
       detalje i jednostavnost korišćenja.
     </p>
     <div class="button-card">
-      <button class="header-btn">
+      <button class="header-btn" id="goDown">
         Pogledaj projekte
+      </button>
+      <button class="header-btn" id="goDown">
+        Posalji poruku
       </button>
     </div>
   </header>
@@ -54,19 +71,19 @@
 
       <section class="about-me-card-container">
         <div class="about-me-container">
-          <div class="about-me-card">
+          <div class="about-me-card btn-pulse">
             <i class="fa-solid fa-bolt"></i>
           </div>
           <p class="secondary-color">Brzina</p>
         </div>
         <div class="about-me-container">
-          <div class="about-me-card">
+          <div class="about-me-card btn-pulse">
             <i class="fa-regular fa-lightbulb"></i>
           </div>
           <p class="secondary-color">Dizajn</p>
         </div>
         <div class="about-me-container">
-          <div class="about-me-card">
+          <div class="about-me-card btn-pulse">
             <i class="fa-solid fa-tv"></i>
           </div>
           <p class="secondary-color">Resposive</p>
@@ -75,7 +92,7 @@
 
     </section>
 
-    <section class="projects">
+    <section class="projects" id="projects">
 
       <section>
         <div class="projects-title">
@@ -93,8 +110,8 @@
               <hr class="lines">
               <p class="description secondary-color">Stomatološka ordinacija Marelj koja se nalazi u Nisu.</p>
               <div class="projects-button-card">
-                <button class="project-card-btn language-button">HTML | CSS | JS | RESPOSIVE</button>
-                <button class="project-card-btn more-button">Vidi Vise</button>
+                <button class="project-card-btn language-button" id="Code-MareljBtn">HTML | CSS | JS | RESPOSIVE | GIT</button>
+                <button class="project-card-btn more-button" id="MareljBtn">Vidi Web</button>
               </div>
             </section>
 
@@ -103,8 +120,8 @@
               <hr class="lines">
               <p class="description secondary-color">Sajt za edukaciju dece kroz kartice, bojanke, drvene igrarcke.(Kopiran sajt)</p>
               <div class="projects-button-card">
-                <button class="project-card-btn language-button">HTML | CSS | JS | RESPOSIVE</button>
-                <button class="project-card-btn more-button">Vidi Vise</button>
+                <button class="project-card-btn language-button"  id="Code-ItsMomsWorldBtn">HTML | CSS | JS | RESPOSIVE | GIT</button>
+                <button class="project-card-btn more-button" id="ItsMomsWorldBtn">Vidi Web</button>
               </div>
             </section>
 
@@ -115,10 +132,10 @@
             <section class="project-card">
               <h3 class="project-name secondary-color">Portfolio</h3>
               <hr class="lines">
-              <p class="description secondary-color">Moj portfolio na kome mozete videti nesto o meni i moje mogucnosti.</p>
+              <p class="description secondary-color">Licni portfolio na kome mozete videti nesto o meni i moje mogucnosti.</p>
               <div class="projects-button-card">
-                <button class="project-card-btn language-button">HTML | CSS | JS | RESPOSIVE</button>
-                <button class="project-card-btn more-button">Vidi Vise</button>
+                <button class="project-card-btn language-button"  id="Code-PotfolioBtn">HTML | CSS | JS | RESPOSIVE | GIT</button>
+                <button class="project-card-btn more-button" id="PortfolioBtn">Vidi Web</button>
               </div>
             </section>
 
@@ -348,12 +365,23 @@
           </a>
 
           <div class="send-card">
-            <button class="secondary-color project-card-btn more-button">Pošalji poruku</button>
+            <button class="secondary-color project-card-btn more-button footer-toggle-btn" type="button" id="footerToggle">Pošalji poruku</button>
           </div>
 
       </section>
 
     </section>
+
+    <div class="footer-expand">
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Ime i prezime">
+        <input type="tel" name="phone" placeholder="Broj telefona">
+        <textarea name="message" placeholder="Vaša poruka"></textarea>
+        <button type="submit" class="send-btn">Pošalji</button>
+      </form>
+    </div>
+
+    <div id="toast"></div>
 
   </footer>
 
